@@ -19,5 +19,28 @@ int main() {
 	
 	struct Route* route = initRoute("/", "index.html"); 
 
+  while(1) {
+    char msg[1024] = "";
+    socket = accept(httpServer.socket, NULL, NULL);
+    read(socket, msg, 1023);
+    printf("%s\n", msg);
+
+    char* method = "";
+    char* path = "";
+    char* clientHeader = strtok(msg, "\n");
+    char* tokenHeader = strtok(clientHeader, " ");
+
+    int parseCounter = 0;
+    while(tokenHeader != NULL) {
+      if (parseCounter == 0) {
+        method = tokenHeader;
+      } else if (parseCounter == 1) {
+        path = tokenHeader;
+      }
+      tokenHeader = strtok(NULL, " ");
+      parseCounter++;
+    }
+  }
+
 	return 0;
 }
