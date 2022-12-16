@@ -4,24 +4,24 @@
 #include <stdlib.h>
 
 char* render(char * file) {
-	FILE* file = fopen(file, "r");
+	FILE* f = fopen(file, "r");
 
-	if (file == NULL)
+	if (f == NULL)
 		return NULL;
 
-	fseek(file, 0, SEEK_END);
-	long fsize = ftell(file);
-	fseek(file, 0, SEEK_SET);
+	fseek(f, 0, SEEK_END);
+	long fsize = ftell(f);
+	fseek(f, 0, SEEK_SET);
 
 	char* temp = malloc(sizeof(char) * (fsize+1));
 	char ch;
 	int i = 0;
 
-	while((ch = fgetc(file)) != EOF) {
+	while((ch = fgetc(f)) != EOF) {
 		temp[i] = ch;
 		i++;
 	}
-  
-	fclose(file);
+
+	fclose(f);
 	return temp;
 }
