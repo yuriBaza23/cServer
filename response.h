@@ -1,0 +1,1 @@
+char* render(char* file);
