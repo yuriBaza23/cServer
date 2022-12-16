@@ -17,12 +17,12 @@ int main() {
 	initServer(&httpServer, 3333);
 	int socket;
 	
-	struct Route* route = initRoute("/", "index.html"); 
+	Route* route = initRoute("/", "index.html"); 
 
   while(1) {
-    char msg[1024] = "";
+    char msg[4096] = "";
     socket = accept(httpServer.socket, NULL, NULL);
-    read(socket, msg, 1023);
+    read(socket, msg, 4095);
     printf("%s\n", msg);
 
     char* method = "";
@@ -40,6 +40,19 @@ int main() {
       tokenHeader = strtok(NULL, " ");
       parseCounter++;
     }
+
+    char temp[4096] = "";
+    if (strstr(path, "/") != NULL) {
+			strcat(temp, "index.css");
+		}
+
+    char* data = render(temp);
+    char httpHeader[4096] = "HTTP/1.1 200 OK\r\n\r\n";
+    strcat(httpHeader, data);
+    strcat(httpHeader, "\r\n\r\n");
+    send(socket, httpHeader, sizeof(httpHeader), 0);
+    close(socket);
+    free(data);
   }
 
 	return 0;
