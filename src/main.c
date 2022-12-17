@@ -47,7 +47,7 @@ int main() {
 			strcat(temp, "static/index.css");
 		} else {
       Route* destination = search(route, path);
-      strcat(temp, "templates/");
+      strcat(temp, "pages/");
       if(destination != NULL) {
         strcat(temp, destination->value);
       } else {
