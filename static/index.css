@@ -93,9 +93,10 @@ header div#wrapper input {
 
 #imageAlbun {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: calc(50vh - 1.5rem - 2.7rem);
-  background-image: linear-gradient(to bottom, rgba(44, 44, 45, 0.271), #131313b4), url(https://scontent.fmgf1-1.fna.fbcdn.net/v/t1.6435-9/144054649_3528106023955065_226716874928581994_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=973b4a&_nc_ohc=aRCVkzxiPkUAX8Ci7vT&_nc_ht=scontent.fmgf1-1.fna&oh=00_AfAPaDol0_tQLaZGFvoQHcS2fvo2-xldFKAFoGS9pFF15Q&oe=63C5BB81);
+  background-image: linear-gradient(to bottom, rgba(44, 44, 45, 0.271), #0e0e0e71), url(https://minilua.net/wp-content/uploads/2010/10/5345_skank-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -123,4 +124,103 @@ header div#wrapper input {
 
 #name span {
   font-weight: bold;
+}
+
+#buttons {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+  margin-left: 2.5rem;
+  background-color: transparent;
+  align-items: center;
+}
+
+#buttons button {
+  margin-right: 1rem;
+  background-color: white;
+  height: 4rem;
+  width: 4rem;
+  max-width: 4rem;
+  min-width: 4rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#buttons button:first-child {
+  margin-right: 1rem;
+  background-color: #181818;
+  height: 7rem;
+  width: 7rem;
+  max-width: 7rem;
+  min-width: 7rem;
+  border-radius: 50%;
+}
+
+#divTable {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(50vh - 1.5rem);
+  background-color: #181818;
+  overflow: auto;
+}
+
+#divTable table {
+  color:rgb(203, 200, 200);
+  font-size: Arial, Helvetica, sans-serif;
+}
+
+#divTable table th {
+  text-align: left;
+  border-bottom: 1px solid rgb(68, 67, 67);
+  height: 3rem;
+}
+
+#divTable table td {
+  text-align: left;
+  border-bottom: 1px solid rgb(68, 67, 67);
+  height: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color:rgb(105, 103, 103);
+}
+
+#divTable table #firstTd {
+  display: flex;
+  align-items: center;
+  color:rgb(203, 200, 200);
+}
+
+#divTable table #firstTd button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin-bottom: auto;
+  border-radius: 1rem;
+  border: 1px solid rgb(68, 67, 67);
+  background-color: transparent;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#albunPhoto {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  background-image: url(https://upload.wikimedia.org/wikipedia/pt/f/f2/Maquinarama.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#mainControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: white;
+  position: absolute;
+  width: 100vw;
 }

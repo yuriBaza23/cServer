@@ -42,9 +42,10 @@ int main() {
       parseCounter++;
     }
 
-    char temp[100] = "";
+    char temp[4000] = "";
     if (strstr(path, "/static/") != NULL) {
 			strcat(temp, "static/index.css");
+      // ADD STATIC FILE METHOD HERE
 		} else {
       Route* destination = search(route, path);
       strcat(temp, "pages/");
