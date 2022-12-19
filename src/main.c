@@ -14,16 +14,16 @@
 
 int main() {
 	HTTPServer httpServer;
-	initServer(&httpServer, 3333);
+	initServer(&httpServer, 9999);
 	int clientSocket;
 	
 	Route* route = initRoute("/", "index.html"); 
   inorder(route);
 
   while(1) {
-    char msg[4096] = "";
+    char msg[90096] = "";
     clientSocket = accept(httpServer.socket, NULL, NULL);
-    read(clientSocket, msg, 4095);
+    read(clientSocket, msg, 90095);
     printf("%s\n", msg);
 
     char* method = "";
@@ -42,7 +42,7 @@ int main() {
       parseCounter++;
     }
 
-    char temp[4000] = "";
+    char temp[90000] = "";
     if (strstr(path, "/static/") != NULL) {
 			strcat(temp, "static/index.css");
       // ADD STATIC FILE METHOD HERE
@@ -57,7 +57,7 @@ int main() {
     }
 
     char* data = render(temp);
-    char httpHeader[4096] = "HTTP/1.1 200 OK\r\n\r\n";
+    char httpHeader[90096] = "HTTP/1.1 200 OK\r\n\r\n";
     strcat(httpHeader, data);
     strcat(httpHeader, "\r\n\r\n");
     send(clientSocket, httpHeader, sizeof(httpHeader), 0);
